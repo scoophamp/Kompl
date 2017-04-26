@@ -201,6 +201,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Mapping\AlbumMapping.cs" />
+    <Compile Include="Mapping\CommentMapping.cs" />
+    <Compile Include="Mapping\PhotoMapping.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AlbumViewModel.cs" />
     <Compile Include="Models\CommentViewModel.cs" />

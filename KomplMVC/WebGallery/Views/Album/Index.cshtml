@@ -1,0 +1,20 @@
+﻿@model WebGallery.Models.AlbumViewModel
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Albums</h2>
+@{
+    var options = new AjaxOptions()
+    {
+        HttpMethod = "POST",
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = "AlbumListDiv",
+    };
+}
+@Html.Partial("Create")
+<div id="AlbumListDiv">
+    @{
+        Html.RenderAction("List");
+    }
+</div>
+

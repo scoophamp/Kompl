@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@{
+    Html.RenderAction("Create", new { id = ViewBag.AlbumRefId });
+}
+<hr />
+<div id="PhotoContainer">
+    @{
+        Html.RenderAction("List", new { id = ViewBag.AlbumRefId });
+    }
+</div>
+
+

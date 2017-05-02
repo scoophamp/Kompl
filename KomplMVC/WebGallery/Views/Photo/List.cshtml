@@ -1,0 +1,55 @@
+﻿@model ICollection<WebGallery.Models.PhotoViewModel>
+
+
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+
+        var options = new AjaxOptions()
+        {
+            HttpMethod = "POST",
+            InsertionMode = InsertionMode.Replace,
+            UpdateTargetId = item.Id.ToString(),
+        };
+        var commentId = item.Id + "Photocomment";
+
+        <div class="col-sm-6 col-md-4" id="@item.Id">
+            <div class="thumbnail">
+                <img src="@item.Url" alt="Delete me!">
+                <div class="caption">
+                    <h3>@Html.DisplayFor(modelItem => item.Name)</h3>
+                    <p>All Comments</p>
+                    <div class="js-CommetnContainerPhoto" data-photoId="@item.Id" id="@commentId">
+                        @{
+                            Html.RenderAction("Comment", new { id = item.Id });
+                        }
+                    </div>
+                    @{
+                        var optionsComments = new AjaxOptions()
+                        {
+                            HttpMethod = "POST",
+                            InsertionMode = InsertionMode.Replace,
+                            UpdateTargetId = @commentId,
+                        };
+                    }
+                    @using (Ajax.BeginForm("CreateComment", "Photo", new { PictureRefId = item.Id }, optionsComments, new { }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-horizontal">
+                            <h4>Add new comment</h4>
+                            <hr />
+                            @Html.TextBox("comment")
+                            <input type="submit" />
+                        </div>
+                        <hr />
+                    }
+                    <div class="btn-group btn-group-justified" role="group" aria-label="">
+                        @Ajax.ActionLink("Delete", "Delete", new { id = item.Id }, options, new { @class = "btn btn-default" })
+                    </div>
+                </div>
+            </div>
+        </div>
+                        }
+</div>

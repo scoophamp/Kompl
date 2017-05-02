@@ -1,0 +1,14 @@
+﻿@model ICollection<WebGallery.Models.CommentViewModel>
+<div>
+    @foreach (var comment in Model)
+    {
+        var options = new AjaxOptions()
+        {
+            HttpMethod = "POST",
+            InsertionMode = InsertionMode.Replace,
+            UpdateTargetId = @comment.Id.ToString(),
+        };
+        <p id="@comment.Id">@comment.Text <small>(@comment.UserEmail)@Ajax.ActionLink("Delete", "DeleteComment", new { id = comment.Id }, options, new { })</small></p>
+    }
+</div>
+

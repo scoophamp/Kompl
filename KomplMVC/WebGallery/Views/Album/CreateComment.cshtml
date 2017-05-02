@@ -1,0 +1,23 @@
+﻿
+@{
+    var optionsComments = new AjaxOptions()
+    {
+        HttpMethod = "POST",
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = @ViewBag.target,
+    };
+}
+@using (Ajax.BeginForm("CreateComment", "Album", new { AlbumRefId = ViewBag.albumId }, optionsComments, new { albumId = ViewBag.albumId, @class = "js-createCommentAlbumForm" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Add new comment</h4>
+        <hr />
+        @Html.TextBox("comment")
+        <input type="submit" />
+
+    </div>
+    <hr />
+}
+

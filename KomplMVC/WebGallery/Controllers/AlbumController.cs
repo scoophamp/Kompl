@@ -13,13 +13,13 @@ namespace WebGallery.Controllers
     public class AlbumController : Controller
     {
         private AlbumRepository AlbumRepository { get; set; }
-        
+       
         private CommentRepository CommentRepository { get; set; }
 
         public AlbumController()
         {
             this.AlbumRepository = new AlbumRepository();
-            
+  
             this.CommentRepository = new CommentRepository();
         }
         // GET: Album
@@ -87,7 +87,7 @@ namespace WebGallery.Controllers
         {
             CommentRepository.Delete(id);
 
-            return View("Index");
+            return null;
         }
         // GET: Album/Edit/5
         public ActionResult Edit(Guid id)

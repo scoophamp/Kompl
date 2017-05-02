@@ -1,5 +1,4 @@
 ﻿@model IEnumerable<WebGallery.Models.AlbumViewModel>
-
 <div class="row">
     @foreach (var item in Model)
     {
@@ -17,53 +16,45 @@
                 <img class="img-responsive" src="../../img/Cool.JPG" alt="Img here">
                 <div class="caption">
                     <h3>@Html.DisplayFor(modelItem => item.Name)</h3>
-                   
-                        <p>Alla kommentarer</p>
-                        <div class="js-CommetnContainerAlbum" data-AlbumId="@item.Id" id="@commentId">
-                            @{
-                                Html.RenderAction("Comment", new { id = item.Id });
-                            }
-                        </div>
-                                
-                  
 
-              @{
-                  var optionsComments = new AjaxOptions()
-                  {
-                      HttpMethod = "POST",
-                      InsertionMode = InsertionMode.Replace,
-                      UpdateTargetId = @commentId,
-                  };
-            }
-            @using (Ajax.BeginForm("CreateComment", "Album", new { AlbumRefId = item.Id }, optionsComments, new { albumId = ViewBag.albumId, @class = "js-createCommentAlbumForm" }))
-            {
-                @Html.AntiForgeryToken()
-
-                <div class="form-horizontal">
-                    
-                    <h4>Kommentera..</h4>
-                    <hr />
-                    @Html.TextBox("comment")
-                    <input type="submit" />
-
-                </div>
-                <hr />
-            }
-                            
-                    <div class="btn-group btn-group-justified" role="group" aria-label="">
-
-                        @Html.ActionLink("Pictures", "Index", "Photo", new { id = item.Id }, new { @class = "btn btn-default" })
-                       @Ajax.ActionLink("Delete", "Delete", new { id = item.Id }, options, new { @class = "btn btn-default" })
+                    <p>Alla kommentarer</p>
+                    <div class="js-CommetnContainerAlbum" data-AlbumId="@item.Id" id="@commentId">
+                        @{
+                            Html.RenderAction("Comment", new { id = item.Id });
+                        }
                     </div>
 
 
+                    @{
+                        var optionsComments = new AjaxOptions()
+                        {
+                            HttpMethod = "POST",
+                            InsertionMode = InsertionMode.Replace,
+                            UpdateTargetId = @commentId,
+                        };
+                    }
+                    @using (Ajax.BeginForm("CreateComment", "Album", new { AlbumRefId = item.Id }, optionsComments, new { albumId = ViewBag.albumId, @class = "js-createCommentAlbumForm" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-horizontal">
+
+                            <h4>Kommentera..</h4>
+                            <hr />
+                            @Html.TextBox("comment")
+                            <input type="submit" />
+                        </div>
+                        <hr />
+                    }
+
+                    <div class="btn-group btn-group-justified" role="group" aria-label="">
+                        @Html.ActionLink("Pictures", "Index", "Photo", new { id = item.Id }, new { @class = "btn btn-default" })
+                        @Ajax.ActionLink("Delete", "Delete", new { id = item.Id }, options, new { @class = "btn btn-default" })
+                    </div>
 
                 </div>
             </div>
         </div>
-    }
+                        }
 </div>
-
-   
-   
 

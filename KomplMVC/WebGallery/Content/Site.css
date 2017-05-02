@@ -22,3 +22,24 @@ select,
 textarea {
     max-width: 280px;
 }
+
+@keyframes example {
+    from {color: red;}
+    to {color: yellow;}
+}
+
+/* The element to apply the animation to */
+.spinner {
+   
+    top: 50%;
+    left: 30%;
+    color: red;
+    animation-name: example;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    font-size: 100px; 
+    position: absolute; 
+    word-wrap: break-word;
+}
+

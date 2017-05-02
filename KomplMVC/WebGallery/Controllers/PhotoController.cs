@@ -74,7 +74,7 @@ namespace WebGallery.Controllers
             {
                 CommentRepository.Delete(id);
 
-                return View("Index");
+                return null;
             }
             [HttpPost]
             [ValidateAntiForgeryToken]

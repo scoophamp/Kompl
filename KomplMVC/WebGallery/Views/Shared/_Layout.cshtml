@@ -8,14 +8,10 @@
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @*<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-        <link href="~/Content/Site.css" rel="stylesheet" />
-        <script src="~/Scripts/jquery-3.1.1.min.js"></script>
-        <script src="~/Scripts/bootstrap.min.js"></script>*@
+   
     <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
 
-    @* <script src="~/Scripts/MyScripts/Photo.js"></script>*@
     <script src="~/Scripts/MyScripts/Album.js"></script>
     <script src="~/Scripts/MyScripts/Comment.js"></script>
 </head>
@@ -39,7 +35,8 @@
         </div>
     </div>
     <div class="container body-content">
-        <div class="spinner hidden">LOADING!!!!</div>
+       
+        <img class="spinner hidden" src="~/img/ajax-loader.gif"/>
         @RenderBody()
     </div>
 

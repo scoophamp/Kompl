@@ -3,7 +3,8 @@
     ViewBag.Title = "Index";
 }
 <h2>Albums</h2>
-@{
+<div class="jumbotron">
+    @{
     var options = new AjaxOptions()
     {
         HttpMethod = "POST",
@@ -12,6 +13,9 @@
     };
 }
 @Html.Partial("Create")
+</div>
+<h1>Albums</h1>
+<br />
 <div id="AlbumListDiv">
     @{
         Html.RenderAction("List");

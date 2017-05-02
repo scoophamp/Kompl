@@ -59,7 +59,7 @@ namespace WebGallery.Controllers
                 AlbumRepository.AddOrUpdate(collection.ToEntity());
             }
 
-            return List();
+            return View("Index");
         }
 
         public ActionResult Comment(Guid id)
@@ -87,7 +87,7 @@ namespace WebGallery.Controllers
         {
             CommentRepository.Delete(id);
 
-            return null;
+            return View("Index");
         }
         // GET: Album/Edit/5
         public ActionResult Edit(Guid id)
@@ -123,7 +123,7 @@ namespace WebGallery.Controllers
         {
             AlbumRepository.Delete(id);
 
-            return null;
+            return View("Index");
         }
 
         // POST: Album/Delete/5

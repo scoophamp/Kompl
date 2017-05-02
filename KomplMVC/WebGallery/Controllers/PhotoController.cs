@@ -47,10 +47,12 @@ namespace WebGallery.Controllers
             [ValidateAntiForgeryToken]
             public ActionResult Create(PhotoViewModel model, HttpPostedFileBase file, Guid id)
             {
-                if (ModelState.IsValid)
+            model.DateAdded = DateTime.Now;
+            if (ModelState.IsValid)
                 {
                     if (file != null || file.ContentLength != 0)
                     {
+                        
                         model.Id = Guid.NewGuid();
                         model.Url = @"/img/" + file.FileName;
                         model.AlbumRefId = id;
@@ -72,7 +74,7 @@ namespace WebGallery.Controllers
             {
                 CommentRepository.Delete(id);
 
-                return null;
+                return View("Index");
             }
             [HttpPost]
             [ValidateAntiForgeryToken]

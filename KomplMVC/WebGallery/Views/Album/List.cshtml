@@ -17,12 +17,15 @@
                 <img class="img-responsive" src="../../img/Cool.JPG" alt="Img here">
                 <div class="caption">
                     <h3>@Html.DisplayFor(modelItem => item.Name)</h3>
-                    <p>All Comments</p>
-                    <div class="js-CommetnContainerAlbum" data-AlbumId="@item.Id" id="@commentId">
-                        @{
-                            Html.RenderAction("Comment", new { id = item.Id });
-                        }
-                    </div>
+                   
+                        <p>Alla kommentarer</p>
+                        <div class="js-CommetnContainerAlbum" data-AlbumId="@item.Id" id="@commentId">
+                            @{
+                                Html.RenderAction("Comment", new { id = item.Id });
+                            }
+                        </div>
+                                
+                  
 
               @{
                   var optionsComments = new AjaxOptions()
@@ -37,7 +40,8 @@
                 @Html.AntiForgeryToken()
 
                 <div class="form-horizontal">
-                    <h4>Add new comment</h4>
+                    
+                    <h4>Kommentera..</h4>
                     <hr />
                     @Html.TextBox("comment")
                     <input type="submit" />

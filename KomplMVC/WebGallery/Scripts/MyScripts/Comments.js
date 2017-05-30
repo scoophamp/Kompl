@@ -1,5 +1,4 @@
 ﻿
-
 $(document).ready(function (e) {
     setInterval(loadComments, 10000);
 });
@@ -20,8 +19,7 @@ function loadComments() {
             url: "/Photo/Comment",
             data: data,
             success: function (data) {
-
-                container.html(data);
+            container.html(data);
 
             }
         });

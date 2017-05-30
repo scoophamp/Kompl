@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "Index";
 }
-
+<h2>Albums</h2>
 @{
     var options = new AjaxOptions()
     {
@@ -11,9 +11,7 @@
         UpdateTargetId = "AlbumListDiv",
     };
 }
-
 @Html.Partial("Create")
-<h2>Album</h2>
 <div id="AlbumListDiv">
     @{
         Html.RenderAction("List");

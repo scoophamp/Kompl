@@ -4,22 +4,23 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TheData.Repositories;
+using TheData.Tables;
 using WebGallery.Mapping;
 using WebGallery.Models;
 
-namespace WebGallery.Controllers
+namespace ImageGallery.Controllers
 {
     [Authorize]
     public class AlbumController : Controller
     {
         private AlbumRepository AlbumRepository { get; set; }
-       
+        
         private CommentRepository CommentRepository { get; set; }
 
         public AlbumController()
         {
             this.AlbumRepository = new AlbumRepository();
-  
+           
             this.CommentRepository = new CommentRepository();
         }
         // GET: Album
@@ -59,7 +60,7 @@ namespace WebGallery.Controllers
                 AlbumRepository.AddOrUpdate(collection.ToEntity());
             }
 
-            return View("Index");
+            return List();
         }
 
         public ActionResult Comment(Guid id)
@@ -123,7 +124,7 @@ namespace WebGallery.Controllers
         {
             AlbumRepository.Delete(id);
 
-            return View("Index");
+            return null;
         }
 
         // POST: Album/Delete/5

@@ -16,15 +16,12 @@
                 <img class="img-responsive" src="../../img/Cool.JPG" alt="Img here">
                 <div class="caption">
                     <h3>@Html.DisplayFor(modelItem => item.Name)</h3>
-
-                    <p>Alla kommentarer</p>
+                    <p>All Comments</p>
                     <div class="js-CommetnContainerAlbum" data-AlbumId="@item.Id" id="@commentId">
                         @{
                             Html.RenderAction("Comment", new { id = item.Id });
                         }
                     </div>
-
-
                     @{
                         var optionsComments = new AjaxOptions()
                         {
@@ -38,8 +35,7 @@
                         @Html.AntiForgeryToken()
 
                         <div class="form-horizontal">
-
-                            <h4>Kommentera..</h4>
+                            <h4>Add new comment</h4>
                             <hr />
                             @Html.TextBox("comment")
                             <input type="submit" />
@@ -57,4 +53,39 @@
         </div>
                         }
 </div>
+@*//$(document).ready(function() {
 
+
+
+    //    var createCommentAlbumForm = $(".js-createCommentAlbumForm");
+
+    //    createCommentAlbumForm.submit(function (e) {
+
+    //        e.preventDefault();
+
+    //        var albumId = createCommentAlbumForm.attr("albumId");
+    //        var comment = createCommentAlbumForm.find(".commentText").val();
+    //        var commetnContainer = createCommentAlbumForm.parent().parent().find(".js-CommetnContainer");
+    //        var data = { comment: comment, id: albumId }
+    //        $.ajax({
+    //            url: createCommentAlbumForm.attr('action'),
+    //            type: "POST",
+    //            data: data,
+    //            dataType: "html",
+    //            beforeSend: function () {
+    //                // Show Spinner!!
+    //                $(".LoaderRootContainer").fadeIn("200");
+    //            },
+    //            success: function (data) {
+    //                commetnContainer.html(data);
+    //            },
+    //            error: function () {
+
+    //            },
+    //            complete: function () {
+
+    //            }
+    //        });
+    //    });
+
+    //});*@

@@ -11,3 +11,20 @@
         <p id="@comment.Id">@comment.Text <small>(@comment.UserEmail)@Ajax.ActionLink("Delete", "DeleteComment", new { id = comment.Id }, options, new { })</small></p>
     }
 </div>
+<script src="~/scripts/jquery-3.1.1.js"></script>
+
+<script>
+     setInterval(RefreshComments, 5000);
+
+
+    function RefreshComments() {
+        $.ajax({
+            type: "GET",
+            url: window.location.href,
+           success: function () {
+                location.reload();
+                console.log("current page refreshed")
+            }
+       });
+    }
+</script> 

@@ -1,6 +1,6 @@
 ﻿
 $(document).ready(function (e) {
-    setInterval(loadComments, 10000);
+    setInterval(loadComments, 1);
 });
 
 
@@ -8,6 +8,8 @@ function loadComments() {
 
     var commetnContainerPhoto = $(".js-CommetnContainerPhoto");
     var commetnContainerAlbum = $(".js-CommetnContainerAlbum");
+
+    
 
     commetnContainerPhoto.each(function () {
         var container = $(this);
